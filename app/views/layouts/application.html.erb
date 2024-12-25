@@ -10,10 +10,69 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <%= render 'layouts/header' %>
-      <main>
-        <p id="notice"><%= notice %></p>
-      </main>
-    <%= render 'layouts/footer' %>
-  </body>
+  <header class="shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/"><span>Bookers</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+      <% if user_signed_in? %>
+      <li style="color: white;">
+        <i class="fa-solid fa-house" style="color: #ffffff;"></i>
+        <%= link_to 'Home', user_path(current_user), style: "color: white;" %>
+      </li>
+      <li style="color: white;">
+        <i class="fa-solid fa-users" style="color: #ffffff;"></i>
+        <%= link_to 'Users', users_path, style: "color: white;" %>
+      </li>
+      <li style="color: white;">
+        <i class="fa-solid fa-book-open" style="color: #ffffff;"></i>
+        <%= link_to 'Books', books_path, style: "color: white;" %>
+      </li>
+      <li style="color: white;">
+        <i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, style: "color: white;" %>
+      </li>
+    <% else %>
+      <li style="color: white;">
+      <i class="fa-solid fa-house" style="color: #ffffff;"></i>
+        <%= link_to 'Home', root_path, style: "color: white;" %>
+      </li>
+
+      <li style="color: white;">
+        <i class="fa-solid fa-link" style="color: #ffffff;"></i>
+        <%= link_to "about", about_path, style: "color: white;" %>
+        </li>
+
+      <li style="color: white;">
+        <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i>
+        <%= link_to "Sign up", new_user_registration_path, style: "color: white;" %>
+      </li>
+      <li style="color: white;">
+        <i class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i>
+        <%= link_to "Log in", new_user_session_path, style: "color: white;" %>
+      </li>
+    <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  </header>
+  <main class="mb-auto">
+  <%= yield %>
+  </main>
+  <footer>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="mx-auto">
+          <p>CopyRight Infratop.inc</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
 </html>
