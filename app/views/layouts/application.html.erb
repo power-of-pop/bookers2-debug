@@ -63,7 +63,11 @@
 
   </header>
   <main class="mb-auto">
-  <%= yield %>
+    <div class="d-flex justify-content-center mb-2" >
+      <%= render 'searches/form' %>
+    </div>
+
+    <%= yield %>
   </main>
   <footer>
     <div class="container mt-5">
