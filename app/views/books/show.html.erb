@@ -30,23 +30,23 @@
             <%= render "favorites/favorites", book: @book %>
           </td>
 
-          <td>
-            <div><p>コメント数：<span id="comment_count"><%= @book.book_comments.count %><span></p></div>
-          </td>
+          <td><p>コメント数：<span id="comment_count"><%= @book.book_comments.count %><span></p></td>
 
         </tr>
 
         <tr>
-          <div id="book-comments">
+          <td id="book-comments">
             <%= render "book_comments/show" ,  book: @book , book_comment: @book_comment %>
-          </div>
+          </td>
         </tr>
 
         <tr>
-          <div id="comment-form">
+          <td id="comment-form">
             <%= render "book_comments/form" , book: @book , book_comment: @book_comment %>
           </div>
         </tr>
+
+        
 
       </table>
     </div>
