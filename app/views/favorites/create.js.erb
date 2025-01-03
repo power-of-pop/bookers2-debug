@@ -1,5 +1,2 @@
 $('#favorite_btn_<%= @book.id %>').html("<%= j(render "favorites/favorites", book: @book) %>");
 
-$('#book-comments').html("<%= j(render "book_comments/show", book: @book) %>");
-$('#comment_count').html("<%= @book.book_comments.count %>")
-$("textarea").val('');
