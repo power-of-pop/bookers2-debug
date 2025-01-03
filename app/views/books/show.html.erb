@@ -39,14 +39,14 @@
       </table>
 
         <tr>
-          <td id="comment-form">
+
             <div>
               <%= form_with model: [@book, @book_comment], local: false do |f| %>
                 <%= f.text_area :comment, size:"90x5" , placeholder: "コメント" %><br>
                 <%= f.submit "送信" %>
               <% end %>
             </div>
-          </div>
+
         </tr>
 
         
