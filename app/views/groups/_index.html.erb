@@ -12,7 +12,7 @@
     <%groups.each do |group| %>
       <tr>
         <td>
-          <%= if group.group_image.attached? %>
+          <% if group.group_image.attached? %>
             <%= image_tag group_image,size:"50x50" %>
           <% else %>
             <%= image_tag 'no_image', size: "50x50" %>
